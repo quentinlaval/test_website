@@ -1,0 +1,21 @@
+/* Appliquer une police et centrer le texte */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style du titre */
+h1 {
+    color: #007bff;
+    margin-top: 50px;
+}
+
+/* Style du paragraphe */
+p {
+    font-size: 18px;
+    margin-top: 10px;
+}
