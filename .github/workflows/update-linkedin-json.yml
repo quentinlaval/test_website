@@ -31,5 +31,5 @@ jobs:
           git config --global user.email "no-reply@example.com"
           git add data/linkedin-posts.json
           git commit -m "Mise à jour auto des posts LinkedIn" || echo "Aucun changement"
-          git remote set-url origin https://x-access-token:${{ secrets.TEST_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin "https://x-access-token:${{ secrets.TEST_TOKEN }}@github.com/${{ github.repository }}"
           git push origin HEAD:main
