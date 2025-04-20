@@ -25,6 +25,9 @@ jobs:
       - name: Exécuter le script Python
         run: python scripts/fetch_linkedin_rss.py
 
+      - name: Vérification du token (debug temporaire)
+        run: echo "Token préfixé https://x-access-token:${{ secrets.TEST_TOKEN }}@github.com/${{ github.repository }}"
+
       - name: Commit & push si modification
         run: |
           git config --global user.name "quentinlaval"
