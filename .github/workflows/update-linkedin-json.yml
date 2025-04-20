@@ -24,9 +24,10 @@ jobs:
 
       - name: Exécuter le script Python
         run: python scripts/fetch_linkedin_rss.py
+        
       - name: Vérifier le token
-        run: echo "Token utilisé : ${{ secrets.ACTIONS_TOKEN }}"
-
+        run: echo "Token utilisé ${{ secrets.ACTIONS_TOKEN }}"
+        
       - name: Commit & push si modification
         run: |
           git config --global user.name "github-actions[bot]"
