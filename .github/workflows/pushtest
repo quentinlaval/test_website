@@ -22,7 +22,7 @@ jobs:
 
     - name: Push avec PAT
       env:
-        TOKEN: ${{ secrets.PAT_TOKEN }}
+        TOKEN: ${{ secrets.TEST_TOKEN }}
       run: |
         git add .
         git commit -m "Test auto push" || echo "Rien à commit"
