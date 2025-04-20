@@ -24,12 +24,12 @@ jobs:
 
       - name: Exécuter le script Python
         run: python scripts/fetch_linkedin_rss.py
-        
+
       - name: Commit & push si modification
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "quentinlaval"
+          git config --global user.email "no-reply@example.com"
           git add data/linkedin-posts.json
           git commit -m "Mise à jour auto des posts LinkedIn" || echo "Aucun changement"
-          echo "HEAD:${{ github.ref }}"
-          git push https://x-access-token:${{ secrets.TEST_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+          git remote set-url origin https://x-access-token:${{ secrets.TEST_TOKEN }}@github.com/${{ github.repository }}
+          git push origin HEAD:main
