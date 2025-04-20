@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Cloner le repo
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false # a MUST HAVE
 
       - name: Installer Python
         uses: actions/setup-python@v4
@@ -24,9 +26,6 @@ jobs:
 
       - name: Exécuter le script Python
         run: python scripts/fetch_linkedin_rss.py
-
-      - name: Vérification du token (debug temporaire)
-        run: echo "Token préfixé https://x-access-token:${{ secrets.TEST_TOKEN }}@github.com/${{ github.repository }}"
 
       - name: Commit & push si modification
         run: |
