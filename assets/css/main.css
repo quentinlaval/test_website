@@ -121,6 +121,10 @@ input, select, textarea {
   text-decoration: underline;
 }
 
+
+.fc-time-grid-container {
+  overflow: hidden;
+}
 /* Basic */
 @-ms-viewport {
   width: device-width; }
@@ -1251,6 +1255,7 @@ input[type="radio"] + label:before {
 .icon {
   text-decoration: none;
   border-bottom: none;
+  color: black;
   position: relative; }
   .icon:before {
     -moz-osx-font-smoothing: grayscale;
@@ -1401,20 +1406,7 @@ ul.actions {
     ul.actions.fit.stacked {
       width: 100%; }
 
-/* Icons */
-ul.icons {
-  cursor: default;
-  list-style: none;
-  padding-left: 0; }
-  ul.icons li {
-    display: inline-block;
-    padding: 0 1em 0 0; }
-    ul.icons li:last-child {
-      padding-right: 0; }
-    ul.icons li .icon {
-      color: black; }
-      ul.icons li .icon:before {
-        font-size: 1.25em; }
+
 
 /* Contact */
 ul.contact {
@@ -1968,8 +1960,8 @@ button,
     width: 26em; }
     #sidebar > .inner > * {
       border-bottom: solid 2px rgba(210, 215, 217, 0.75);
-      margin: 0 0 3.5em 0;
-      padding: 0 0 3.5em 0; }
+      margin: 0 0 2.5em 0;
+      padding: 0 0 2.5em 0; }
       #sidebar > .inner > * > :last-child {
         margin-bottom: 0; }
       #sidebar > .inner > *:last-child {
@@ -2061,7 +2053,7 @@ button,
         height: 100%;
         left: 0;
         overflow-x: hidden;
-        overflow-y: auto;
+        overflow-y: hidden;
         position: absolute;
         top: 0; }
         #sidebar > .inner:after {
@@ -2118,8 +2110,7 @@ button,
     color: inherit;
     font-family: "Roboto Slab", serif;
     font-size: 1.125em; }
-  #header .icons {
-    text-align: right; }
+
   @media screen and (max-width: 1680px) {
     #header {
       padding-top: 5em; } }
@@ -2237,6 +2228,7 @@ button,
   text-transform: uppercase; }
   #menu ul a, #menu ul span {
     border-bottom: 0;
+    overflow: hidden;
     color: inherit;
     cursor: pointer;
     display: block;

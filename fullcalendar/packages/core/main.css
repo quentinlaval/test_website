@@ -2,6 +2,7 @@
 .fc {
   direction: ltr;
   text-align: left;
+  overflow: hidden !important;
 }
 
 .fc-rtl {
