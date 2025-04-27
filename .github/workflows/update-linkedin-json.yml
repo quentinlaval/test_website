@@ -3,7 +3,7 @@ name: Update LinkedIn JSON
 # Déclenchement automatique tous les jours à 6h UTC, ou à la main
 on:
   schedule:
-    - cron: '0 6 * * *'  # tous les jours à 6h UTC
+    - cron: '0 6 * * 1'  # tous les lundis à 6h UTC
   workflow_dispatch:      # bouton manuel dans GitHub Actions
 
 jobs:
