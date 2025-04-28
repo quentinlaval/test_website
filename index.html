@@ -117,12 +117,11 @@
 									<div  style="text-align: justify; font-size: large;">
 										<strong>
 											Envie de rejoindre l'aventure ? Pour adhérer à l'association, rien de plus simple : il vous suffit de régler
-											 une cotisation de <span class="underline">5 €</span> auprès de <span class="copy-email" data-email="quentin.laval@u-bordeaux.fr" id="quentin">Quentin</span> 
-											 ou de <span class="copy-email" data-email="ange-marie.gouna@u-bordeaux.fr" id="daniela">Daniela</span>, membres du pôle trésorerie à 
+											 une cotisation de <span class="underline">5 €</span> auprès de <a href="mailto:quentin.laval@u-bordeaux.fr">Quentin</a>
+											 ou de <a href="mailto:ange-marie.gouna@u-bordeaux.fr">Daniela</a>, membres du pôle trésorerie à 
 											 contacter par mail ou directement aux bureaux N311 et N313. L'adhésion est bien plus qu'un soutien financier, elle nous permet d'organiser 
 											 encore plus de séminaires, de soirées et d'événements conviviaux tout au long de l'année ! En devenant membre, vous recevrez votre carte d'adhérent,
 											 qui vous donnera des avantages grâce à nos partenariats. N'attendez plus pour faire partie de la communauté !
-											 <span id="copied" style="display: none; margin-left: 10px; font-size: 0.9em; color: #f56a6a;">✅ Mail copié !</span>
 										</strong>
 									</div>
 								</section>
@@ -150,21 +149,29 @@
 									
 										<!-- Partenaire 1: Casden -->
 											<a href="https://www.casden.fr" target="_blank">
-											<img src="images/logo_casden.png" alt="Casden" style="width: 150px; height: auto;">
+												<img src="images/logo_casden.png" alt="Casden" style="width: 150px; height: auto;">
 											</a>
 									
 										<!-- Partenaire 2: CMSO -->
 											<a href="https://www.cmso.com" target="_blank">
-											<img src="images/logo_CMSO.png" alt="CMSO" style="width: 150px; height: auto;">
+												<img src="images/logo_CMSO.png" alt="CMSO" style="width: 150px; height: auto;">
 											</a>
 									
 										<!-- Partenaire 3: BPH -->
 											<a href="https://www.bordeaux-population-health.center/" target="_blank">
-											<img src="images/logo_BPH.png" alt="Bordeaux Population Health" style="width: 150px; height: auto;">
+												<img src="images/logo_BPH.png" alt="Bordeaux Population Health" style="width: 150px; height: auto;">
 											</a>
 										<!-- Partenaire 4: INSERM -->
-										<a href="https://www.inserm.fr/" target="_blank">
-											<img src="images/logo_Inserm.png" alt="INSERM" style="width: 150px; height: auto;">
+											<a href="https://www.inserm.fr/" target="_blank">
+												<img src="images/logo_Inserm.png" alt="INSERM" style="width: 150px; height: auto;">
+											</a>
+										<!-- Partenaire 5: Dept SP -->
+											<a href="https://santepublique.u-bordeaux.fr/" target="_blank">
+												<img src="images/logo_departementSP.jpg" alt="Departement Santé Publique" style="width: 350px; height: auto;">
+											</a>
+										<!-- Partenaire 6: Digital et UB -->
+											<a href="https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph" target="_blank">
+												<img src="images/logo_digital_PH.jpg" alt="Digital Public Health" style="width: 350px; height: auto;">
 											</a>
 										</div>
 									</div>
@@ -177,8 +184,7 @@
 									<div style="flex: 1; min-width: 250px;">
 										<h2 style="font-size: 2em; margin-bottom: 10px; margin-left: 100px;">Nous contacter</h2>
 										<p style="font-size: 1.5em; margin-top: 20px;">
-										  <span id="email" style="cursor: pointer; text-decoration: underline; margin-left: 100px;">bbphasso@gmail.com</span>
-										  <span id="copied-bb" style="display: none; margin-left: 10px; font-size: 0.9em;">✅ Mail copié !</span>
+										  <a href="mailto:bbphasso@gmail.com" style="color: white; margin-left: 100px;">bbphasso@gmail.com</a>
 										</p>
 									  </div>
 								
@@ -208,50 +214,9 @@
 
 				<!-- Sidebar -->
 					<div id="sidebar-container"></div>
-
 			</div>
 
-		<!-- Scripts -->
-		   <!-- Script de copie dans le presse-papier -->
-			<script>
-				document.getElementById('email').addEventListener('click', function () {
-				const email = 'bbphasso@gmail.com';
-				navigator.clipboard.writeText(email).then(() => {
-					const copiedMsg = document.getElementById('copied-bb');
-					copiedMsg.style.display = 'inline';
-					setTimeout(() => {
-					copiedMsg.style.display = 'none';
-					}, 2000);
-				});
-				});
-			</script>
-			<!-- Script de copie dans le presse-papier mail des trésoriers -->
-			<script>
-				document.querySelectorAll('.copy-email').forEach(person => {
-					person.addEventListener('click', function () {
-						const email = this.getAttribute('data-email');
-						navigator.clipboard.writeText(email).then(() => {
-							// Afficher le message
-							const copiedMsg = document.getElementById('copied');
-							copiedMsg.style.display = 'inline';
-							setTimeout(() => {
-							copiedMsg.style.display = 'none';
-							}, 2000);
-				
-							// Changer temporairement la couleur du nom
-							this.style.color = '#3498db'; // Bleu clair, change si tu veux
-							this.style.fontWeight = 'bold';
-				
-							// Remettre tout apres 2 secondes
-							setTimeout(() => {
-								copiedMsg.style.display = 'none';
-								this.style.color = '';       // Reset couleur
-								this.style.fontWeight = '';  // Reset gras
-							}, 2000);
-						});
-					});
-				});
-			</script>				
+		<!-- Scripts -->				
 			<script>
 				// Charger le header avant de lancer le script principal
 				fetch('header.html')

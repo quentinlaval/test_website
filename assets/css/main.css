@@ -102,20 +102,6 @@ input, select, textarea {
     margin-right: auto;
 }
 
-/* Style de base pour les trésoriers cliquables */
-.copy-email {
-  cursor: pointer;               /* Indique qu'on peut cliquer */
-  color: #f56a6a;
-  text-decoration: underline;                  
-  transition: color 0.3s ease;    /* Transition douce pour la couleur */
-}
-
-/* Change la couleur au survol pour indiquer que c'est cliquable */
-.copy-email:hover {
-  color: #3498db;                 /* Bleu au survol */
-  text-decoration: underline;     /* Souligner le texte pour plus de visibilité */
-}
-
 /* Classe pour souligner */
 .underline {
   text-decoration: underline;
