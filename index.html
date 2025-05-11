@@ -175,39 +175,6 @@
 											</a>
 										</div>
 									</div>
-								</section>
-							<!-- Section Contact Newsletter -->
-								<section id="contact_NL" style="background-color: #96a25e; padding: 60px 20px; color: white;">
-									<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;">
-								
-									<!-- Bloc "Nous contacter" -->
-									<div style="flex: 1; min-width: 250px;">
-										<h2 style="font-size: 2em; margin-bottom: 10px; margin-left: 100px;">Nous contacter</h2>
-										<p style="font-size: 1.5em; margin-top: 20px;">
-										  <a href="mailto:bbphasso@gmail.com" style="color: white; margin-left: 100px;">bbphasso@gmail.com</a>
-										</p>
-									  </div>
-								
-									<!-- Bloc Newsletter -->
-									<div style="flex: 1; min-width: 250px;">
-										<h2 style="font-size: 2em; margin-bottom: 10px;">S'inscrire à notre newsletter</h2>
-										<a href="https://diff.u-bordeaux.fr/sympa/subscribe/asso.bbph" target="_blank" style="
-										display: inline-block;
-										padding: 10px 20px;
-										background-color: white;
-										color: #96a25e;
-										border: none;
-										border-radius: 4px;
-										font-size: 1.3em;
-										font-weight: bold;
-										text-decoration: none;
-										transition: background-color 0.3s ease;
-										" onmouseover="this.style.backgroundColor='#e0e0e0'" onmouseout="this.style.backgroundColor='white'">
-										Je m'inscris
-										</a>
-									</div>
-								
-									</div>
 								</section>															 
 						</div>
 					</div>
@@ -215,32 +182,11 @@
 				<!-- Sidebar -->
 					<div id="sidebar-container"></div>
 			</div>
-
+			<!-- Footnote -->
+			<div id="footer-container"></div>
 		<!-- Scripts -->				
-			<script>
-				// Charger le header avant de lancer le script principal
-				fetch('header.html')
-					.then(response => response.text())
-					.then(html => {
-						// Injecter le contenu du header
-						document.getElementById('header-container').innerHTML = html;
-		
-						// Charger la sidebar
-						return fetch('sidebar.html');
-					})
-					.then(response => response.text())
-					.then(html => {
-						// Injecter le contenu de la sidebar
-						document.getElementById('sidebar-container').innerHTML = html;
-		
-						// Charger et exécuter main.js après l'injection
-						const script = document.createElement('script');
-						script.src = 'assets/js/main.js';  // Ajoute ton script principal
-						script.defer = true;  // Assure-toi que le script est exécuté après l'injection
-						document.body.appendChild(script);
-					})
-					.catch(error => console.error("Erreur lors du chargement du header ou de la sidebar :", error));
-			</script>
+			<!-- Load layout -->
+			<script src="scripts/layout_loader.js"></script>
 				
 			<!-- Script automatique posts LinkedIn -->
 			<script>

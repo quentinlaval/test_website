@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>BBPH Asso</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+    <body>
+
+        <!-- Header -->
+        <div id="header-container"></div>
+
+        <div class="content" style="display: flex; flex-direction: column; margin-left: 100px;">
+            <h1>Mentions légales</h1>
+
+            <section>
+            <h2>1. Éditeur du site</h2>
+            <p><strong>Association Bordeaux Population Health</strong><br/>
+            RNA : W123456789<br/>
+            Siège social : 146 Rue Léo Saignat 11, 33076 Bordeaux<br/>
+            Directeur de publication : M. Quentin Laval (Trésorier)<br/>
+            Contact : <a href="mailto:bbphasso@gmail.com">bbphasso@gmail.com</a></p>
+            </section>
+
+            <section>
+            <h2>2. Hébergement</h2>
+            <p>Notre site est hébergé gratuitement par GitHub Pages :<br/>
+            <strong>GitHub, Inc.</strong><br/>
+            88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA</p>
+            </section>
+
+            <section>
+            <h2>3. Propriété intellectuelle</h2>
+            <p>© 2025 Bordeaux Population Health. Tous droits réservés.<br/>
+            Les contenus (textes, images, logos) sont protégés par le Code de la propriété intellectuelle et ne peuvent être reproduits sans autorisation préalable du directeur de publication : <a href="mailto:bbphasso@gmail.com">bbphasso@gmail.com</a></p>
+            </section>
+
+            <section>
+            <h2>4. Données personnelles</h2>
+            <p>Ce site ne collecte pas de données personnelles.</p>
+            </section>
+
+            <section>
+            <h2>5. Cookies</h2>
+            <p>Ce site n’utilise pas de cookies.</p>
+            </section>
+
+        </div>
+                <!-- Sidebar -->
+        <div id="sidebar-container"></div>
+        <!-- Footer
+        <div id="footer-container"></div> -->
+        <script>
+            // Charger le header avant de lancer le script principal
+            fetch('header.html')
+                .then(response => response.text())
+                .then(html => {
+                    // Injecter le contenu du header
+                    document.getElementById('header-container').innerHTML = html;
+
+                    // Charger la sidebar
+                    return fetch('sidebar.html');
+                })
+                .then(response => response.text())
+                .then(html => {
+                    // Injecter le contenu de la sidebar
+                    document.getElementById('sidebar-container').innerHTML = html;
+
+                    // Charger et exécuter main.js après l'injection
+                    const script = document.createElement('script');
+                    script.src = 'assets/js/main.js';  // Ajoute ton script principal
+                    script.defer = true;  // Assure-toi que le script est exécuté après l'injection
+                    document.body.appendChild(script);
+                })
+                .catch(error => console.error("Erreur lors du chargement du header ou de la sidebar :", error));
+        </script>
+        		<!-- Les scripts JS nécessaires à la page -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

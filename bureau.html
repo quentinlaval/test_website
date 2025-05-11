@@ -90,101 +90,65 @@
 				<!-- Sidebar -->
 				<div id="sidebar-container"></div>
 			</div>
+            			<!-- Footnote -->
+			<div id="footer-container"></div>
 
 		<!-- Scripts -->
-		<script>
-			// Charger la sidebar avant de lancer le script principal
-			fetch('sidebar.html')
-				.then(response => response.text())
-				.then(html => {
-					// Injecter le contenu de la sidebar
-					document.getElementById('sidebar-container').innerHTML = html;
-
-					// Charger et exécuter main.js après l'injection
-					const script = document.createElement('script');
-					script.src = 'assets/js/main.js';  // Ajoute ton script principal
-					script.defer = true;  // Assure-toi que le script est exécuté après l'injection
-					document.body.appendChild(script);
-				})
-				.catch(error => console.error("Erreur lors du chargement de la sidebar :", error));
-		</script>
-		<script>
-			// Charger le header avant de lancer le script principal
-			fetch('header.html')
-				.then(response => response.text())
-				.then(html => {
-					// Injecter le contenu du header
-					document.getElementById('header-container').innerHTML = html;
-	
-					// Charger la sidebar
-					return fetch('sidebar.html');
-				})
-				.then(response => response.text())
-				.then(html => {
-					// Injecter le contenu de la sidebar
-					document.getElementById('sidebar-container').innerHTML = html;
-	
-					// Charger et exécuter main.js après l'injection
-					const script = document.createElement('script');
-					script.src = 'assets/js/main.js';  // Ajoute ton script principal
-					script.defer = true;  // Assure-toi que le script est exécuté après l'injection
-					document.body.appendChild(script);
-				})
-				.catch(error => console.error("Erreur lors du chargement du header ou de la sidebar :", error));
-		</script>
-        <script>
-            // Chargement automatique des membres du bureau, photo et liste des evenements
-            document.addEventListener('DOMContentLoaded', function () {
-                var urlParams = new URLSearchParams(window.location.search);
-                var officeId = urlParams.get('id');
-                
-                fetch('data/bureaux.json')
-                    .then(response => response.json())
-                    .then(bureaux => {
-                        var office = bureaux.find(e => e.id === officeId);
-                        if (office) {
-                            document.getElementById('bureau-title').innerText = office.title;
-                            document.getElementById('bureau-photo').src = office.photo; // lien d'image
-                            
-                            // Liste des sections à remplir
-                            const sections = [
-                                'presidence', 
-                                'tresorerie', 
-                                'secretariat', 
-                                'communication', 
-                                'scientifique', 
-                                'evenements'
-                            ];
-                            
-                            sections.forEach(section => {
-                                const element = document.getElementById(`bureau-${section}`);
-                                const data = office[section];
+			<!-- Load layout -->
+			<script src="scripts/layout_loader.js"></script>
+            <script>
+                // Chargement automatique des membres du bureau, photo et liste des evenements
+                document.addEventListener('DOMContentLoaded', function () {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var officeId = urlParams.get('id');
+                    
+                    fetch('data/bureaux.json')
+                        .then(response => response.json())
+                        .then(bureaux => {
+                            var office = bureaux.find(e => e.id === officeId);
+                            if (office) {
+                                document.getElementById('bureau-title').innerText = office.title;
+                                document.getElementById('bureau-photo').src = office.photo; // lien d'image
                                 
-                                if (Array.isArray(data)) {
-                                    // Si c'est un array, construire une liste de <li>
-                                    element.innerHTML = '';
-                                    data.forEach(item => {
-                                        const li = document.createElement('li');
-                                        li.textContent = item;
-                                        element.appendChild(li);
-                                    });
-                                } else {
-                                    // Sinon juste du texte
-                                    element.innerText = data;
-                                }
-                            });
-                        }
-                    })
-                    .catch(error => console.error('Erreur lors de la récupération du bureau:', error));
-            });
-            </script>
-    
-		<!-- Les scripts JS nécessaires à la page -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+                                // Liste des sections à remplir
+                                const sections = [
+                                    'presidence', 
+                                    'tresorerie', 
+                                    'secretariat', 
+                                    'communication', 
+                                    'scientifique', 
+                                    'evenements'
+                                ];
+                                
+                                sections.forEach(section => {
+                                    const element = document.getElementById(`bureau-${section}`);
+                                    const data = office[section];
+                                    
+                                    if (Array.isArray(data)) {
+                                        // Si c'est un array, construire une liste de <li>
+                                        element.innerHTML = '';
+                                        data.forEach(item => {
+                                            const li = document.createElement('li');
+                                            li.textContent = item;
+                                            element.appendChild(li);
+                                        });
+                                    } else {
+                                        // Sinon juste du texte
+                                        element.innerText = data;
+                                    }
+                                });
+                            }
+                        })
+                        .catch(error => console.error('Erreur lors de la récupération du bureau:', error));
+                });
+                </script>
+        
+            <!-- Les scripts JS nécessaires à la page -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
 
 	</body>
 </html>
